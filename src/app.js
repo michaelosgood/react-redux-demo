@@ -11,19 +11,11 @@ export const App = ({ count, total, increment, decrement }) =>
     <p>You clicked { total } times</p>
   </div>
 
-const mapStateToProps = ({ count, total }) => ({
-  count,
-  total
-})
+const mapState = ({ count, total }) => ({ count, total })
 
-const mapDispatchToProps = dispatch => {
-  return {
-    increment: () => dispatch(actions.increment()),
-    decrement: () => dispatch(actions.decrement())
-  }
+const mapDispatch = {
+  increment: actions.increment,
+  decrement: actions.decrement
 }
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(App)
+export default connect(mapState, mapDispatch)(App)

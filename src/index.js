@@ -1,11 +1,11 @@
 import React from 'react'
 import { render } from 'react-dom'
-import { createStore, combineReducers } from 'redux'
 import { Provider } from 'react-redux'
-import * as reducers from './reducers'
+import { createStore, combineReducers } from 'redux'
 import App from './app'
+import * as reducers from './reducers'
 
-const devTools = window.__REDUX_DEVTOOLS_EXTENSION__ || (() => _ => _)
+const devTools = window.devToolsExtension || (() => _ => _)
 const rootReducer = combineReducers(reducers)
 const store = createStore(rootReducer, devTools())
 
